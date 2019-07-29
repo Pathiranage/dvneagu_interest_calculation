@@ -1,0 +1,98 @@
+<mat-grid-list cols="2" rowHeight="87%">
+    <mat-grid-tile>
+        <div class="flex-container">
+            <div class="item">
+                <h3>Suma de plata:
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    <mat-form-field>
+                        <input matInput placeholder="">
+                    </mat-form-field>
+                    <mat-icon aria-label="Button that displays a tooltip when
+                                         focused or hovered over"
+                              color="primary"
+                              matTooltip="Introduceti suma datorata">info
+                    </mat-icon>
+                </h3>
+            </div>
+            <div class="item">
+                <h3>Data scadenta:
+                    &nbsp;
+                    <app-datepicker></app-datepicker>
+                    <mat-icon aria-label="Button that displays a tooltip
+                                        when focused or hovered over"
+                              color="primary"
+                              matTooltip="Introduceti data la care trebuia platita suma">info
+                    </mat-icon>
+                </h3>
+            </div>
+            <div>
+                <h3>Data platii:
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    <app-datepicker></app-datepicker>
+                    <mat-icon aria-label="Button that displays a tooltip
+                                         when focused or hovered over"
+                              color="primary"
+                              matTooltip="Data la care se face plata">info
+                    </mat-icon>
+                </h3>
+            </div>
+            <div>
+                <button color="primary" mat-flat-button>Calcul dobanzi si penalitati</button>
+            </div>
+            <div>
+                <h1>Rezultate</h1>
+                <h3>Dobanzi:</h3>
+                <h3>Penalitati de intarziere:</h3>
+            </div>
+            <div>
+                <button color="primary" mat-flat-button>Interogare noua</button>
+            </div>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <div class="flex-container">
+            <div class="item">
+                <h3>Calcul dobanzi si penalitati in alta valuta
+                </h3>
+            </div>
+            <div class="item">
+                <h3>Curs de schimb
+
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    <mat-form-field>
+                        <input matInput placeholder="">
+                    </mat-form-field>
+                    <mat-icon aria-label="Button that displays a tooltip when focused or hovered over"
+                              color="primary"
+                              matTooltip="Introduceti cursul de schimb">info
+                    </mat-icon>
+                </h3>
+            </div>
+
+
+            <div>
+                <button color="primary" mat-flat-button>Calcul dobanzi si penalitati</button>
+            </div>
+            <div>
+                <h1>Rezultate</h1>
+                <h3>Dobanzi:</h3>
+                <h3>Penalitati de intarziere:</h3>
+            </div>
+            <div>
+                <button color="primary" mat-flat-button>Interogare noua</button>
+            </div>
+        </div>
+    </mat-grid-tile>
+
+
+</mat-grid-list>

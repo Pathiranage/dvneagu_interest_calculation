@@ -1,0 +1,18 @@
+<mat-toolbar color="white">
+    <mat-toolbar-row>
+        <img class="logo" src="assets/img/logo-tpsoft.png">
+        &nbsp;
+        &nbsp;
+        <span class="title">Calcul dobanzi si penalitati de intarziere</span>
+        <span class="example-spacer"></span>
+        <span class="example-icon">
+      </span>
+        <div *ngIf="!authService.isUserLoggedIn()" class="example-button-row">
+            <button (click)="navigateToLogin()" color="primary" mat-flat-button>Login</button>
+            <button (click)="navigateToSignUp()" color="primary" mat-flat-button>Sign Up</button>
+        </div>
+        <div *ngIf="authService.isUserLoggedIn()" class="example-button-row">>
+            <button (click)="logout()" color="primary" mat-flat-button>Logout</button>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

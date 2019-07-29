@@ -1,0 +1,122 @@
+<div class="flex-container">
+    <mat-card class="flex-item">
+        <mat-card-header>
+            <mat-card-title>
+                Calcul dobanzi si penalitati
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="first-content">
+                <div class="inner-item first-text">
+                    <div class="suma-plata">
+                        <span>Suma de plata:</span>
+                    </div>
+                    <div class="data-scadenta">
+                        <span>Data scadenta:</span>
+                    </div>
+                    <div class="data-platii">
+                        <span>Data platii:</span>
+                    </div>
+                </div>
+                <div class="inner-item first-data">
+                    <mat-form-field>
+                        <input class="input-field" matInput placeholder="">
+                    </mat-form-field>
+                    <br/>
+                    <app-datepicker></app-datepicker>
+                    <br/>
+                    <app-datepicker></app-datepicker>
+                </div>
+                <div class="inner-item first-info">
+                    <div class="info-suma">
+                        <mat-icon aria-label="Button that displays a tooltip when
+                            focused or hovered over"
+                                  color="primary"
+                                  matTooltip="Introduceti suma datorata">info
+                        </mat-icon>
+                    </div>
+                    <div class="info-scadenta">
+                        <mat-icon aria-label="Button that displays a tooltip
+                        when focused or hovered over"
+                                  color="primary"
+                                  matTooltip="Introduceti data la care trebuia platita suma">info
+                        </mat-icon>
+                    </div>
+                    <div class="info-plata">
+                        <mat-icon aria-label="Button that displays a tooltip
+                            when focused or hovered over"
+                                  color="primary"
+                                  matTooltip="Data la care se face plata">info
+                        </mat-icon>
+                    </div>
+
+                </div>
+            </div>
+        </mat-card-content>
+        <mat-card-actions align=center>
+            <button color="primary" mat-flat-button>
+                Calcul dobanzi si penalitati
+            </button>
+        </mat-card-actions>
+        <mat-card-footer>
+            <div class="first-results">
+                <div class="first-results-rezultate">
+                    Rezultate:
+                </div>
+                <div class="first-results-dobanzi">
+                    Dobanzi:
+                </div>
+                <div class="first-results-penalitati">
+                    Penalitati:
+                </div>
+            </div>
+        </mat-card-footer>
+    </mat-card>
+    <mat-card class="flex-item">
+        <mat-card-header>
+            <mat-card-title>
+                Calcul dobanzi si penalitati in alta valuta
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="second-content">
+                <div class="text-valuta">
+                    Curs de schimb:
+                </div>
+                <div class="input-valuta">
+                    <mat-form-field>
+                        <input class="input-field" matInput placeholder="">
+                    </mat-form-field>
+                </div>
+                <div class="info-valuta">
+                    <mat-icon aria-label="Button that displays a tooltip
+                        when focused or hovered over"
+                              color="primary"
+                              matTooltip="Calcul dobanzi si penalitati in alta valuta">info
+                    </mat-icon>
+                </div>
+            </div>
+        </mat-card-content>
+        <mat-card-actions align=center>
+            <button color="primary" mat-flat-button>
+                Calcul dobanzi si penalitati in alta valuta
+            </button>
+        </mat-card-actions>
+        <mat-card-footer>
+            <div class="first-results">
+                <div class="first-results-rezultate">
+                    Rezultate:
+                </div>
+                <div class="first-results-dobanzi">
+                    Dobanzi:
+                </div>
+                <div class="first-results-penalitati">
+                    Penalitati:
+                </div>
+            </div>
+        </mat-card-footer>
+    </mat-card>
+</div>
+<div class="bottom-container">
+    <button class="clear-button" color="primary" mat-flat-button>Interogare noua</button>
+</div>

@@ -1,0 +1,111 @@
+.flex-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin-top: 100px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.bottom-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 75px;
+}
+
+.flex-item {
+    width: 600px;
+    height: 500px;
+}
+
+.first-content {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.inner-item {
+    height: 220px;
+    margin-top: 30px;
+    margin-right: 20px;
+}
+
+.first-text {
+    display: flex;
+    flex-flow: column;
+    align-content: flex-start;
+}
+
+.first-results {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: flex-start;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+.first-results-rezultate {
+    font-size: 150%;
+    font-weight: bold;
+}
+
+.first-results-dobanzi {
+    margin-top: 15px;
+    font-size: 120%;
+}
+
+.first-results-penalitati {
+    margin-top: 5px;
+    font-size: 120%;
+}
+
+.first-text {
+    font-size: 140%;
+
+}
+
+.suma-plata {
+    margin-top: 20px;
+}
+
+.data-scadenta {
+    margin-top: 32px;
+}
+
+.data-platii {
+    margin-top: 32px;
+}
+
+.info-suma {
+    margin-top: 20px;
+}
+
+.info-scadenta {
+    margin-top: 25px;
+}
+
+.info-plata {
+    margin-top: 32px;
+}
+
+.second-content {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.text-valuta {
+    font-size: 140%;
+    margin-right: 20px;
+    margin-top: 100px;
+    margin-bottom: 130px;
+}
+
+.input-valuta {
+    margin-top: 85px;
+    margin-right: 20px;
+}
+
+.info-valuta {
+    margin-top: 100px;
+}
