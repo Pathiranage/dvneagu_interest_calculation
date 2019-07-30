@@ -34,4 +34,5 @@ public class UserController
 		}
 		return ResponseEntity.ok( this.userService.login( userName, password ) );
 	}
+
 }

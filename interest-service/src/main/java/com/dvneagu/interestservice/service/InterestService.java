@@ -12,7 +12,7 @@ import java.util.Map;
  */
 public interface InterestService
 {
-	Map<String, String> calculateInterest( RequestData requestData );
+	EsResponse<Map<String, Object>> calculateInterest( RequestData requestData );
 
 	EsResponse<Rate> createNewRate( Rate rate );
 

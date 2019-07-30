@@ -3,7 +3,7 @@ package com.dvneagu.interestservice.entity;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 /**
  * @author Kalana Weerarathne on 29th 07, 2019
@@ -19,10 +19,10 @@ public class Rate extends AuditModel
     private Long id;
 
     @Column(name = "FROM_DATE")
-    private LocalDateTime fromDate;
+    private LocalDate fromDate;
 
     @Column(name = "INTEREST_RATE", precision = 3, scale = 2)
-    private double interestDate;
+    private double interestRate;
 
     @Column(name = "PENALTIES", precision = 3, scale = 2)
     private double penalties;
