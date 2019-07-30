@@ -1,4 +1,4 @@
-package com.dvneagu.interestservice.model;
+package com.dvneagu.interestservice.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;

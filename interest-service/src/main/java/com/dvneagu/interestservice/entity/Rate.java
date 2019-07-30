@@ -1,4 +1,4 @@
-package com.dvneagu.interestservice.model;
+package com.dvneagu.interestservice.entity;
 
 import lombok.Data;
 
@@ -11,7 +11,8 @@ import java.time.LocalDateTime;
 @Data
 @Entity
 @Table(name = "RATES")
-public class Rates extends AuditModel {
+public class Rate extends AuditModel
+{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
