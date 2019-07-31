@@ -39,4 +39,22 @@ public class UserServiceImpl implements UserService
 			return new EsResponse<>( -1, "Password not matched" );
 		}
 	}
+
+	@Override
+	public EsResponse changePassword( String userName, String password, String currentPassword )
+	{
+		Optional<User> byUserName = this.userRepository.findByUserName( userName );
+		if ( !byUserName.isPresent() )
+		{
+			return new EsResponse<>( -1, "Username not found" );
+		}
+		User user = byUserName.get();
+		if ( !this.passwordEncoder.matches( currentPassword, user.getPassword() ) )
+		{
+			return new EsResponse<>( -1, user, "invalid Previous Password " );
+		}
+		user.setPassword( this.passwordEncoder.encode( password ) );
+		this.userRepository.save( user );
+		return new EsResponse( 1, "Password Changed" );
+	}
 }

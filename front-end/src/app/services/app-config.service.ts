@@ -8,7 +8,7 @@ export class AppConfigService {
     private readonly _BASE_URL: string;
 
     constructor() {
-        this._BASE_URL = 'https://localhost:8180/interest-service/ap1/v1';
+        this._BASE_URL = 'http://localhost:8180/interest-service/ap1/v1';
         this._URL_SEPARATOR = '/';
     }
 

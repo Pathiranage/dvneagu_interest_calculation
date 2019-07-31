@@ -10,13 +10,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.text.DecimalFormat;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
  * @author Kalana Weerarathne on 29th 07, 2019
  */
 @RestController
-@RequestMapping("/interest")
+@RequestMapping("/rate")
 public class InterestController
 {
 	@Autowired
@@ -57,5 +58,11 @@ public class InterestController
 		res.put( "interest", decimalFormat.format( interest / rate ) );
 		res.put( "penalties", decimalFormat.format( penalties / rate ) );
 		return ResponseEntity.ok( new EsResponse<>( 1, res, "Converted to currency rate" ) );
+	}
+
+	@GetMapping("")
+	public ResponseEntity<EsResponse<List<Rate>>> findAll()
+	{
+		return ResponseEntity.ok( this.interestService.findAll() );
 	}
 }

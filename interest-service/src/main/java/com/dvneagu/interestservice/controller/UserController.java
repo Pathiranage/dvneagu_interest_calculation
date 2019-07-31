@@ -35,4 +35,22 @@ public class UserController
 		return ResponseEntity.ok( this.userService.login( userName, password ) );
 	}
 
+	@PostMapping("/change-password")
+	public ResponseEntity<EsResponse> changePassword( @RequestHeader String userName, @RequestHeader String currentPassword, @RequestHeader String password )
+	{
+		if ( userName == null || userName.isEmpty() )
+		{
+			return ResponseEntity.badRequest().body( new EsResponse<>( -1, "Invalid Username" ) );
+		}
+		if ( password == null || password.isEmpty() )
+		{
+			return ResponseEntity.badRequest().body( new EsResponse<>( -1, "Invalid password" ) );
+		}
+		if ( currentPassword == null || currentPassword.isEmpty() )
+		{
+			return ResponseEntity.badRequest().body( new EsResponse<>( -1, "Invalid current password" ) );
+		}
+		return ResponseEntity.ok( this.userService.changePassword( userName, password, currentPassword ) );
+	}
+
 }

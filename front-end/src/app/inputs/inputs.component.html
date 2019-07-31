@@ -23,6 +23,9 @@
                         <mat-form-field>
                             <input class="input-field" formControlName="amount" matInput placeholder="amount"
                                    type="number">
+                            <mat-error *ngIf="calculatorForm.get('amount').hasError('required')">
+                                Amount required
+                            </mat-error>
                         </mat-form-field>
                         <br/>
                         <mat-form-field>
@@ -31,14 +34,20 @@
                                    placeholder="Choose a date">
                             <mat-datepicker-toggle [for]="picker1" matSuffix></mat-datepicker-toggle>
                             <mat-datepicker #picker1></mat-datepicker>
+                            <mat-error *ngIf="calculatorForm.get('actualDate').hasError('required')">
+                                date required
+                            </mat-error>
                         </mat-form-field>
                         <br/>
                         <mat-form-field>
                             <mat-label></mat-label>
-                            <input [matDatepicker]="picker2" formControlName="receivedData" matInput
+                            <input [matDatepicker]="picker2" formControlName="receivedDate" matInput
                                    placeholder="Choose a date">
                             <mat-datepicker-toggle [for]="picker2" matSuffix></mat-datepicker-toggle>
                             <mat-datepicker #picker2></mat-datepicker>
+                            <mat-error *ngIf="calculatorForm.get('receivedDate').hasError('required')">
+                                date required
+                            </mat-error>
                         </mat-form-field>
                     </div>
                 </form>
@@ -69,7 +78,7 @@
             </div>
         </mat-card-content>
         <mat-card-actions align=center>
-            <button (click)="calculateInterest()" color="primary" mat-flat-button type="button">
+            <button (click)="calculateInterest()" [disabled]="calculatorForm.invalid" color="primary" mat-flat-button type="button">
                 Calcul dobanzi si penalitati
             </button>
         </mat-card-actions>
@@ -79,10 +88,10 @@
                     Rezultate:
                 </div>
                 <div class="first-results-dobanzi">
-                    Dobanzi:
+                    Dobanzi: {{interest | number : '1.2-2'}}
                 </div>
                 <div class="first-results-penalitati">
-                    Penalitati:
+                    Penalitati: {{penalties | number : '1.2-2'}}
                 </div>
             </div>
         </mat-card-footer>
@@ -98,11 +107,16 @@
                 <div class="text-valuta">
                     Curs de schimb:
                 </div>
-                <div class="input-valuta">
-                    <mat-form-field>
-                        <input class="input-field" matInput placeholder="">
-                    </mat-form-field>
-                </div>
+                <form [formGroup]="rateForm">
+                    <div class="input-valuta">
+                        <mat-form-field>
+                            <input class="input-field" matInput placeholder="rate" formControlName="rate" type="number">
+                            <mat-error *ngIf="rateForm.get('rate').hasError('required')">
+                                rate required
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </form>
                 <div class="info-valuta">
                     <mat-icon aria-label="Button that displays a tooltip
                         when focused or hovered over"
@@ -113,7 +127,7 @@
             </div>
         </mat-card-content>
         <mat-card-actions align=center>
-            <button color="primary" mat-flat-button>
+            <button color="primary" mat-flat-button (click)="calculateCurrencyRate()" [disabled]="rateForm.invalid">
                 Calcul dobanzi si penalitati in alta valuta
             </button>
         </mat-card-actions>
@@ -123,10 +137,10 @@
                     Rezultate:
                 </div>
                 <div class="first-results-dobanzi">
-                    Dobanzi:
+                    Dobanzi: {{interestCurrency | number : '1.2-2'}}
                 </div>
                 <div class="first-results-penalitati">
-                    Penalitati:
+                    Penalitati: {{penaltiesCurrency | number : '1.2-2'}}
                 </div>
             </div>
         </mat-card-footer>

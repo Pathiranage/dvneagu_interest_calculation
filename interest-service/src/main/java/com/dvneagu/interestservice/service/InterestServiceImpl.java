@@ -89,4 +89,10 @@ public class InterestServiceImpl implements InterestService
 		this.ratesRepository.deleteById( id );
 		return new EsResponse( 1, "Rate deleted" );
 	}
+
+	@Override
+	public EsResponse<List<Rate>> findAll()
+	{
+		return new EsResponse<>( 1, this.ratesRepository.findAll(), "Rates found" );
+	}
 }

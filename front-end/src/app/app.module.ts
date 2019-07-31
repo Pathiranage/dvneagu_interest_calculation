@@ -11,10 +11,11 @@ import {DatepickerComponent} from './datepicker/datepicker.component';
 import {MainPageComponent} from './main-page/main-page.component';
 import {InputsComponent} from './inputs/inputs.component';
 import {BackupComponent} from './backup/backup.component';
-import {SignUpComponent} from './sign-up/sign-up.component';
-import {DashboardComponent} from './dashboard/dashboard.component';
 import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
+import {SignUpComponent} from './sign-up/sign-up.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
     declarations: [
@@ -26,7 +27,8 @@ import {ReactiveFormsModule} from '@angular/forms';
         InputsComponent,
         BackupComponent,
         SignUpComponent,
-        DashboardComponent
+        DashboardComponent,
+        ChangePasswordComponent
     ],
     imports: [
         BrowserModule,
@@ -34,7 +36,7 @@ import {ReactiveFormsModule} from '@angular/forms';
         BrowserAnimationsModule,
         MaterialModule,
         HttpClientModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
     ],
     providers: [],
     bootstrap: [AppComponent]

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from '../services/authentication.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
+import {EsResponse} from '../util/es-response';
 
 @Component({
     selector: 'app-login',
@@ -20,8 +21,8 @@ export class LoginComponent implements OnInit {
 
     ngOnInit() {
         this.loginFormGroup = new FormGroup({
-            userName: new FormControl('admin', [Validators.required]),
-            password: new FormControl('admin', [Validators.required]),
+            userName: new FormControl('', [Validators.required]),
+            password: new FormControl('', [Validators.required]),
         });
     }
 
@@ -38,13 +39,15 @@ export class LoginComponent implements OnInit {
     login() {
         const userName = this.loginFormGroup.value.userName;
         const password = this.loginFormGroup.value.password;
-        console.log(password);
-        sessionStorage.setItem('userName', userName);
-        sessionStorage.setItem('userRole', 'ROLE_ADMIN');
         this.authService.authenticate(userName, password)
-            .subscribe(res => {
-                console.log(res);
+            .subscribe((res: EsResponse) => {
+                if (res.status === 1) {
+                    sessionStorage.setItem('userName', userName);
+                    sessionStorage.setItem('userRole', res.data.userType);
+                    this.router.navigate(['']);
+                } else {
+                    alert(res.message);
+                }
             });
-        this.router.navigate(['']);
     }
 }

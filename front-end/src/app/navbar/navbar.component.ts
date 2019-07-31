@@ -8,6 +8,7 @@ import {AuthenticationService} from '../services/authentication.service';
     styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+    isAdmin = false;
 
     constructor(
         private router: Router,
@@ -17,6 +18,7 @@ export class NavbarComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.isAdmin = sessionStorage.getItem('userRole') === 'ROLE_ADMIN';
     }
 
     navigateToLogin() {

@@ -10,4 +10,7 @@ import com.dvneagu.interestservice.entity.User;
 public interface UserService
 {
 	EsResponse<User> login( String userName, String password );
+
+	EsResponse changePassword( String userName, String password, String currentPassword );
+
 }

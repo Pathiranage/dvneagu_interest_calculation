@@ -8,9 +8,9 @@ import {
     MatGridListModule,
     MatIconModule,
     MatInputModule,
-    MatListModule,
-    MatNativeDateModule,
-    MatRadioModule,
+    MatListModule, MatMenuModule,
+    MatNativeDateModule, MatPaginatorModule,
+    MatRadioModule, MatTableDataSource, MatTableModule,
     MatToolbarModule,
     MatTooltipModule
 } from '@angular/material';
@@ -32,7 +32,10 @@ const materials = [
     MatListModule,
     MatRadioModule,
     MatTooltipModule,
-    MatGridListModule
+    MatGridListModule,
+    MatMenuModule,
+    MatPaginatorModule,
+    MatTableModule,
 ];
 
 

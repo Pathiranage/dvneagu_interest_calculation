@@ -15,6 +15,7 @@ const httpOptions = {
 export class AuthenticationService {
 
     private userLoginEndPoint = 'user/login';
+    private userCPEndPoint = 'user/change-password';
 
     constructor(private appConfig: AppConfigService,
                 private router: Router,
@@ -46,5 +47,22 @@ export class AuthenticationService {
         sessionStorage.removeItem('userName');
         sessionStorage.removeItem('userRole');
         this.router.navigate(['login']);
+    }
+
+    changePassword(userName: string, currentPassword: string, password: string) {
+        const url = this.appConfig.BASE_URL + this.appConfig.URL_SEPARATOR + this.userCPEndPoint;
+        let headers: HttpHeaders = new HttpHeaders();
+        headers = headers.append('Content-Type', 'application/json');
+        headers = headers.append('userName', userName);
+        headers = headers.append('currentPassword', currentPassword);
+        headers = headers.append('password', password);
+        httpOptions.headers = headers;
+
+        return this.http.post(url, '', httpOptions)
+            .pipe(
+                tap(res => {
+                    return res;
+                })
+            );
     }
 }

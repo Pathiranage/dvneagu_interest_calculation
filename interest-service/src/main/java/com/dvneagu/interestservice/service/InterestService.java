@@ -4,6 +4,7 @@ import com.dvneagu.interestservice.dao.EsResponse;
 import com.dvneagu.interestservice.dao.RequestData;
 import com.dvneagu.interestservice.entity.Rate;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -17,4 +18,6 @@ public interface InterestService
 	EsResponse<Rate> createNewRate( Rate rate );
 
 	EsResponse deleteRate( long id );
+
+	EsResponse<List<Rate>> findAll();
 }
