@@ -18,15 +18,30 @@
                         <span>Data platii:</span>
                     </div>
                 </div>
-                <div class="inner-item first-data">
-                    <mat-form-field>
-                        <input class="input-field" matInput placeholder="">
-                    </mat-form-field>
-                    <br/>
-                    <app-datepicker></app-datepicker>
-                    <br/>
-                    <app-datepicker></app-datepicker>
-                </div>
+                <form [formGroup]="calculatorForm">
+                    <div class="inner-item first-data">
+                        <mat-form-field>
+                            <input class="input-field" formControlName="amount" matInput placeholder="amount"
+                                   type="number">
+                        </mat-form-field>
+                        <br/>
+                        <mat-form-field>
+                            <mat-label></mat-label>
+                            <input [matDatepicker]="picker1" formControlName="actualDate" matInput
+                                   placeholder="Choose a date">
+                            <mat-datepicker-toggle [for]="picker1" matSuffix></mat-datepicker-toggle>
+                            <mat-datepicker #picker1></mat-datepicker>
+                        </mat-form-field>
+                        <br/>
+                        <mat-form-field>
+                            <mat-label></mat-label>
+                            <input [matDatepicker]="picker2" formControlName="receivedData" matInput
+                                   placeholder="Choose a date">
+                            <mat-datepicker-toggle [for]="picker2" matSuffix></mat-datepicker-toggle>
+                            <mat-datepicker #picker2></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                </form>
                 <div class="inner-item first-info">
                     <div class="info-suma">
                         <mat-icon aria-label="Button that displays a tooltip when
@@ -54,7 +69,7 @@
             </div>
         </mat-card-content>
         <mat-card-actions align=center>
-            <button color="primary" mat-flat-button>
+            <button (click)="calculateInterest()" color="primary" mat-flat-button type="button">
                 Calcul dobanzi si penalitati
             </button>
         </mat-card-actions>

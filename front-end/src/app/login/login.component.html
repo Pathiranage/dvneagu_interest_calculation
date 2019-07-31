@@ -1,21 +1,28 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<mat-card class="my-card">
-    <mat-card-header>
-        <mat-card-title>Login</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        <form class="my-form">
+<form (ngSubmit)="login()" [formGroup]="loginFormGroup" class="my-form">
+    <mat-card class="my-card">
+        <mat-card-header>
+            <mat-card-title>Login</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
             <mat-form-field class="full-width">
                 <mat-label>Email</mat-label>
-                <input matInput name="email" placeholder="Email" required>
+                <input formControlName="userName" matInput name="email" placeholder="Email" required type="text">
+                <mat-error *ngIf="loginFormGroup.get('userName').hasError('required')">
+                    Username required
+                </mat-error>
             </mat-form-field>
             <mat-form-field class="full-width">
                 <mat-label>Password</mat-label>
-                <input matInput name="password" placeholder="Password" required>
+                <input formControlName="password" matInput name="password" placeholder="Password" required
+                       type="password">
+                <mat-error *ngIf="loginFormGroup.get('password').hasError('required')">
+                    Password required
+                </mat-error>
             </mat-form-field>
-        </form>
-    </mat-card-content>
-    <mat-card-actions>
-        <button (click)="login()" color="primary" mat-flat-button>LOGIN</button>
-    </mat-card-actions>
-</mat-card>
+        </mat-card-content>
+        <mat-card-actions>
+            <button [disabled]="loginFormGroup.invalid" color="primary" mat-flat-button>LOGIN</button>
+        </mat-card-actions>
+    </mat-card>
+</form>

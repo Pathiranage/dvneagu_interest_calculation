@@ -11,7 +11,7 @@
             <button (click)="navigateToLogin()" color="primary" mat-flat-button>Login</button>
             <button (click)="navigateToSignUp()" color="primary" mat-flat-button>Sign Up</button>
         </div>
-        <div *ngIf="authService.isUserLoggedIn()" class="example-button-row">>
+        <div *ngIf="authService.isUserLoggedIn()" class="example-button-row">
             <button (click)="logout()" color="primary" mat-flat-button>Logout</button>
         </div>
     </mat-toolbar-row>

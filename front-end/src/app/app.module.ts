@@ -13,26 +13,31 @@ import {InputsComponent} from './inputs/inputs.component';
 import {BackupComponent} from './backup/backup.component';
 import {SignUpComponent} from './sign-up/sign-up.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
+import {HttpClientModule} from '@angular/common/http';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    LoginComponent,
-    DatepickerComponent,
-    MainPageComponent,
-    InputsComponent,
-    BackupComponent,
-    SignUpComponent,
-    DashboardComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MaterialModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        NavbarComponent,
+        LoginComponent,
+        DatepickerComponent,
+        MainPageComponent,
+        InputsComponent,
+        BackupComponent,
+        SignUpComponent,
+        DashboardComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MaterialModule,
+        HttpClientModule,
+        ReactiveFormsModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
