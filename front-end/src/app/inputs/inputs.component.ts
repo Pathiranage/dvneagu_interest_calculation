@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {FormControl, FormGroup, FormGroupDirective, Validators} from '@angular/forms';
 import {AppConfigService} from '../services/app-config.service';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {EsResponse} from '../util/es-response';
@@ -10,6 +10,7 @@ import {EsResponse} from '../util/es-response';
     styleUrls: ['./inputs.component.css']
 })
 export class InputsComponent implements OnInit {
+    @ViewChild(FormGroupDirective, {static: true}) formGroupDirective: FormGroupDirective;
     calculatorForm: FormGroup;
     rateForm: FormGroup;
     interest = '0.0';
@@ -79,5 +80,11 @@ export class InputsComponent implements OnInit {
                     alert(res.message);
                 }
             });
+    }
+
+    clearForm() {
+        this.formGroupDirective.resetForm();
+        this.rateForm.reset();
+        this.rateForm.updateValueAndValidity();
     }
 }

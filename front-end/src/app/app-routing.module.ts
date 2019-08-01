@@ -8,7 +8,7 @@ import {AuthGaurdService} from './services/auth-gaurd.service';
 import {ChangePasswordComponent} from './change-password/change-password.component';
 
 const routes: Routes = [
-    {path: '', component: InputsComponent, canActivate: [AuthGaurdService]},
+    {path: '', component: InputsComponent},
     {path: 'login', component: LoginComponent},
     {path: 'sign-up', component: SignUpComponent},
     {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGaurdService]},

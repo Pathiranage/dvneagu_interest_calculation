@@ -9,7 +9,7 @@ import {AuthenticationService} from '../services/authentication.service';
 })
 export class NavbarComponent implements OnInit {
     isAdmin = false;
-
+    session = sessionStorage;
     constructor(
         private router: Router,
         private authService: AuthenticationService,
@@ -18,7 +18,6 @@ export class NavbarComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.isAdmin = sessionStorage.getItem('userRole') === 'ROLE_ADMIN';
     }
 
     navigateToLogin() {

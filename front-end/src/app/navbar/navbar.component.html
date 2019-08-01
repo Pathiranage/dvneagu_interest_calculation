@@ -9,13 +9,14 @@
       </span>
         <div *ngIf="!authService.isUserLoggedIn()" class="example-button-row">
             <button (click)="navigateToLogin()" color="primary" mat-flat-button>Login</button>
-            <button (click)="navigateToSignUp()" color="primary" mat-flat-button>Sign Up</button>
         </div>
         <div *ngIf="authService.isUserLoggedIn()" class="example-button-row">
             <button mat-button [matMenuTriggerFor]="menu">Menu</button>
             <mat-menu #menu="matMenu">
                 <button mat-menu-item routerLink="change-password">Change Password</button>
-                <button mat-menu-item routerLink="dashboard" *ngIf="isAdmin">Dashboard</button>
+                <button *ngIf="session.getItem('userRole') === 'ROLE_ADMIN'" mat-menu-item routerLink="dashboard">
+                    Dashboard
+                </button>
                 <button mat-menu-item (click)="logout()">Logout</button>
             </mat-menu>
         </div>
