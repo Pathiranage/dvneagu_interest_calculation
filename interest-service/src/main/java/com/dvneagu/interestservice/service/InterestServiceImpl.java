@@ -51,7 +51,7 @@ public class InterestServiceImpl implements InterestService
 			{
 				if ( i == 0 )
 				{
-					long noOfDays = ChronoUnit.DAYS.between( actualDate, betweenData.get( i ).getFromDate() );
+					long noOfDays = ChronoUnit.DAYS.between( actualDate, betweenData.get( i ).getFromDate().minusDays( 1 ) );
 					interest += ( noOfDays * ( actualTop.getInterestRate() / 100 ) * amount );
 					penalties += ( noOfDays * ( actualTop.getPenalties() / 100 ) * amount );
 				}
