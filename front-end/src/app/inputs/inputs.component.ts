@@ -41,8 +41,15 @@ export class InputsComponent implements OnInit {
         const httpOptions = {
             headers: new HttpHeaders(),
         };
+        const actualDate: Date = this.calculatorForm.value.actualDate;
+        const receivedDate: Date = this.calculatorForm.value.receivedDate;
+        const data = {
+            actualDate: (actualDate.getDate() < 10 ? '0' : '') + actualDate.getDate() + '/' + ((actualDate.getMonth() + 1) < 10 ? '0' : '') + (actualDate.getMonth() + 1) + '/' + actualDate.getFullYear(),
+            receivedDate: (receivedDate.getDate() < 10 ? '0' : '') + receivedDate.getDate() + '/' + ((receivedDate.getMonth() + 1) < 10 ? '0' : '') + (receivedDate.getMonth() + 1) + '/' + receivedDate.getFullYear(),
+            amount: this.calculatorForm.value.amount
+        };
         console.log(this.calculatorForm.value);
-        this.http.post(url, this.calculatorForm.value, httpOptions)
+        this.http.post(url, data, httpOptions)
             .subscribe((res: EsResponse) => {
                 console.log(res);
                 if (res.status === 1) {
@@ -86,5 +93,9 @@ export class InputsComponent implements OnInit {
         this.formGroupDirective.resetForm();
         this.rateForm.reset();
         this.rateForm.updateValueAndValidity();
+        this.interest = '0.0';
+        this.penalties = '0.0';
+        this.interestCurrency = '0.0';
+        this.penaltiesCurrency = '0.0';
     }
 }
