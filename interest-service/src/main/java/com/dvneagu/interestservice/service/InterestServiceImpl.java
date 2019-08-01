@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.HashMap;
 import java.util.List;
@@ -31,12 +32,21 @@ public class InterestServiceImpl implements InterestService
 			double interest = 0.0;
 			double penalties = 0.0;
 
-			LocalDate actualDate = requestData.getActualDate();
-			LocalDate receivedDate = requestData.getReceivedDate();
+			DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern( "dd/MM/yyyy" );
+
+			LocalDate actualDate = LocalDate.parse( requestData.getActualDate(), dateTimeFormatter );
+			LocalDate receivedDate = LocalDate.parse( requestData.getReceivedDate(), dateTimeFormatter );
+
 			double amount = requestData.getAmount();
 			Rate actualTop = this.ratesRepository.findTopByFromDateLessThanEqualOrderByFromDateDesc( actualDate );
 			Rate receivedTop = this.ratesRepository.findTopByFromDateLessThanEqualOrderByFromDateDesc( receivedDate );
 			List<Rate> betweenData = this.ratesRepository.findAllByFromDateGreaterThanEqualAndFromDateLessThanEqual( actualDate, receivedDate );
+			if ( actualDate.getMonth().getValue() == receivedDate.getMonth().getValue() )
+			{
+				long noOfDays = ChronoUnit.DAYS.between( actualDate, receivedDate );
+				interest += ( noOfDays * ( actualTop.getInterestRate() / 100 ) * amount );
+				penalties += ( noOfDays * ( actualTop.getPenalties() / 100 ) * amount );
+			}
 			for ( int i = 0; i < betweenData.size(); i++ )
 			{
 				if ( i == 0 )

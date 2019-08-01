@@ -3,7 +3,6 @@ package com.dvneagu.interestservice.dao;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 
 /**
  * Copyright (c) 2019. scicom.com.my - All Rights Reserved
@@ -12,7 +11,7 @@ import java.time.LocalDate;
 @Data
 public class RequestData implements Serializable
 {
-	private LocalDate actualDate;
-	private LocalDate receivedDate;
+	private String actualDate;
+	private String receivedDate;
 	private double amount;
 }
